@@ -1,0 +1,67 @@
+
+/* 
+    Created on : 8 feb. 2022, 18:36:57
+    Author     : Sebastián Lizano
+*/
+
+#Barra {
+    position: absolute;
+    left: 0%;
+    right: 8%;
+    height: 100%;
+    width: 8%;
+    background-color: rgba(0,0,0,.3);
+    border-radius: 25px;
+    border: 2px solid #73AD21;
+    padding: 20px;
+   
+}
+
+#headerPrin{
+    font-family: 'Bebas Neue', cursive; 
+    font-size: 1000%; text-align: center;
+}
+
+#MenuItem {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    justify-content: center;
+    min-height: 3.5rem;
+    margin-top: 0.2rem;
+    margin-right: 0px;
+    margin-bottom: 0.2rem;
+    margin-left: 0px;
+}
+
+#menuText{
+    font-size: 25px;
+    font-weight: 100;
+    margin-top: .25rem;
+    text-align: center;
+    font-family: 'Bebas Neue', cursive;
+}
+
+#seccionPrincipal{
+    position: absolute;
+    left: 12%;
+    width: 86%;
+    overflow: auto;
+    background-color: rgba(142,39,154,.5);
+    border-radius: 25px;
+    border: 2px solid #73AD21;
+    
+    padding-top: 20px;
+    padding-bottom: 0px;
+    padding-left: 25px;
+    padding-right: 0px;
+
+}
+
+#seccionPrincipal h1{
+    font-family: 'Audiowide', cursive;
+    font-size: 37px;
+}
