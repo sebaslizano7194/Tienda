@@ -22,19 +22,12 @@
     font-size: 1000%; text-align: center;
 }
 
-#MenuItem {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    justify-content: center;
-    min-height: 3.5rem;
-    margin-top: 0.2rem;
-    margin-right: 0px;
-    margin-bottom: 0.2rem;
-    margin-left: 0px;
+#Barra a img {
+
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 35px;
+    padding-left: 35px;
 }
 
 #menuText{
@@ -43,6 +36,8 @@
     margin-top: .25rem;
     text-align: center;
     font-family: 'Bebas Neue', cursive;
+    padding-right: 20px;
+    padding-left: 20px;
 }
 
 #seccionPrincipal{
