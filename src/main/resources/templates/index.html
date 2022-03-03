@@ -7,7 +7,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>Saludos</div>
+        <header th:replace="layout/plantilla :: header"></header>
+       <!-- <div>Saludos</div>
         <p th:text="${Mensaje}"></p>
         
         <h1>Cliente desde una clase</h1>
@@ -38,10 +39,16 @@
             </tr>
         </table>
         
+       -->
         
         <br>
         
         <h1>Clientes desde una lista de Base de Datos</h1>
+        <br><!-- comment -->
+        <a th:href="@{/nuevoCliente}">Nuevo Cliente</a> <!--Esto es para hacer un href de agregar nuevo cliente en Thymeleaf. @ es para acciones-->
+        <br>
+        <br>
+        
         
         <table border="1">
            
@@ -50,6 +57,8 @@
             <td>Apelidos</td>
             <td>Correo</td>
             <td>Telefono</td>
+            <td>Modificar</td>
+            <td>Eliminar</td>
             
             </tr>
             
@@ -58,6 +67,8 @@
                 <td th:text="${item.apellidos}"></td>
                 <td th:text="${item.correo}"></td>
                 <td th:text="${item.telefono}"></td>
+                <td><a th:href="@{/modificarCliente/} + ${item.idcliente}">Modificar</a></td>
+                <td><a th:href="@{/eliminarCliente/} + ${item.idcliente}">Eliminar</a>
             </tr>
         </table>
     </body>
