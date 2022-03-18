@@ -6,7 +6,9 @@
 package com.tienda.Service;
 
 import com.tienda.Domain.Cliente;
+import com.tienda.Domain.Credito;
 import com.tienda.dao.ClienteDao;
+import com.tienda.dao.CreditoDao;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,9 @@ public class ClienteServiceIMP implements ClienteService {
     
     @Autowired //Crea una instancia sin tener que llamarla
     private ClienteDao clienteDao;
+    
+    @Autowired
+    private CreditoDao creditoDao;
 
     @Override
     @Transactional (readOnly = true)
@@ -33,6 +38,12 @@ public class ClienteServiceIMP implements ClienteService {
     @Override
     @Transactional //Si no se pone el readOnly, es que va a editar/escribir
     public void save(Cliente cliente) {
+        
+        Credito credito = cliente.getCredito();
+        credito = creditoDao.save(credito);
+        
+        
+        cliente.setCredito(credito);
         clienteDao.save(cliente);
     }
 
@@ -43,7 +54,7 @@ public class ClienteServiceIMP implements ClienteService {
 
     @Override
     public Cliente getCliente(Cliente cliente) {
-        return clienteDao.findById(cliente.getIdcliente()).orElse(null); //Va a buscar por ID, si lo encuentra great, si no, retorna un null. ojo!!
+        return clienteDao.findById(cliente.getIdCliente()).orElse(null); //Va a buscar por ID, si lo encuentra great, si no, retorna un null. ojo!!
     }
     
 }

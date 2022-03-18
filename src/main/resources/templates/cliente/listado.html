@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <link href="/CSS/menu.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header th:replace="layout/plantilla :: header"></header>
+
+
+        <div class="contenido">
+
+            <h2>Listado de Clientes</h2>
+            <br><!-- comment -->
+            <a th:href="@{/cliente/nuevo}">Nuevo Cliente</a> <!--Esto es para hacer un href de agregar nuevo cliente en Thymeleaf. @ es para acciones-->
+            <br>
+            <br>
+
+            <div th:if="${clientes != null and !clientes.empty}">
+                <table border="1">
+
+                    <tr>
+                        <td>Nombre</td>
+                        <td>Apelidos</td>
+                        <td>Correo</td>
+                        <td>Telefono</td>
+                        <td>Limite</td>
+                        <td>Modificar</td>
+                        <td>Eliminar</td>
+
+                    </tr>
+
+                    <tr th:each="item :${clientes}">
+                        <td th:text="${item.nombre}"></td>
+                        <td th:text="${item.apellidos}"></td>
+                        <td th:text="${item.correo}"></td>
+                        <td th:text="${item.telefono}"></td>
+                        <td th:text="${#Numbers.formatDecimal(item.credito.limite,3,2)}"></td>
+                        <td><a th:href="@{/cliente/modificar/} + ${item.idCliente}">Modificar</a></td>
+                        <td><a th:href="@{/cliente/eliminar/} + ${item.idCliente}">Eliminar</a>
+                    </tr>
+                </table>
+            </div>
+            <div th:if="${clientes == null or clientes.empty}">
+                No tenemos clientes para mostrar!
+            </div>
+        </div>
+    </body>
+</html>

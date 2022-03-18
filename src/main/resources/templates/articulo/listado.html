@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <link href="/CSS/menu.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header th:replace="layout/plantilla :: header"></header>
+
+
+        <div class="contenido">
+
+            <h2>Listado de Articulos</h2>
+            <br><!-- comment -->
+            <a th:href="@{/articulo/nuevo}">Nuevo Articulo</a> <!--Esto es para hacer un href de agregar nuevo articulo en Thymeleaf. @ es para acciones-->
+            <br>
+            <br>
+
+            <div th:if="${articulos != null and !articulos.empty}">
+                <table border="1">
+
+                    <tr>
+                        <td>Descripcion</td>
+                        <td>Precio</td>
+                        <td>Existencias</td>
+                        <td>Activo</td>
+
+                    </tr>
+
+                    <tr th:each="item :${articulos}">
+                        <td th:text="${item.descripcion}"></td>
+                        <td th:text="${#Numbers.formatDecimal(item.precio,3,2)}"></td>
+                        <td th:text="${item.exstencias}"></td>
+                        <td> <input type="checkbox" name="activo" th:checked="${item.activo}" disabled="true"></td>
+                        <td><a th:href="@{/articulo/modificar/} + ${item.idArticulo}">Modificar</a></td>
+                        <td><a th:href="@{/articulo/eliminar/} + ${item.idArticulo}">Eliminar</a>
+                    </tr>
+                </table>
+            </div>
+            <div th:if="${articulos == null or articulos.empty}">
+                No tenemos articulos para mostrar!
+            </div>
+        </div>
+    </body>
+</html>
