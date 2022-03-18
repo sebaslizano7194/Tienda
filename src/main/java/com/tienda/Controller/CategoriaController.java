@@ -48,7 +48,7 @@ public class CategoriaController {
         return "redirect:/categoria/listado"; //Aca estamos redireccionando a la accion default que esta arriba
     }
     
-    @GetMapping("/categoria/modifica/{idCategoria}")
+    @GetMapping("/categoria/modificar/{idCategoria}")
     public String modificarCategoria(Categoria categoria, Model model){
         var respuesta = categoriaService.getCategoria(categoria);
         model.addAttribute("categoria", respuesta);
