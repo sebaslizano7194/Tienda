@@ -14,7 +14,7 @@
         
         <!-- comment -->
         <div class="contenido">
-            <h2>Nuestros Articulos</h2>
+            <h2 th:text="#{index.titulo}">Nuestros Articulos</h2>
         <br>
         <br>
         <br>
@@ -23,8 +23,9 @@
         <table border="1">
            
             <tr>
-            <td>Desripcion</td>
-            <td>Precio</td>
+            <td th:text="#{articulo.descripcion}">Desripcion</td>
+            <td th:text="#{articulo.precio}">Precio</td>
+            <td th:text="#{articulo.comprar}">Comprar</td>
 
             
             </tr>
@@ -32,12 +33,14 @@
             <tr th:each="item :${articulos}">
                 <td th:text="${item.descripcion}"></td>
                 <td th:text="${#numbers.formatDecimal(item.precio, 3,2)}" style="text-align: right;"></td> 
-                <td><a th:href="@{/carrito/agregar/} + ${item.idArticulo}">Agregar</a></td>
+                <td><a th:href="@{/carrito/agregar/} + ${item.idArticulo}"
+                       th:text="#{accion.agregar}">Agregar</a></td>
             </tr>
             
             
         </table>
         </div>
         </div>
+        <footer th:replace="layout/plantilla :: footer" ></footer>
     </body>
 </html>

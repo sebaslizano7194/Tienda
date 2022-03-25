@@ -22,13 +22,13 @@
                 <table border="1">
 
                     <tr>
-                        <td>Nombre</td>
-                        <td>Apelidos</td>
-                        <td>Correo</td>
-                        <td>Telefono</td>
-                        <td>Limite</td>
-                        <td>Modificar</td>
-                        <td>Eliminar</td>
+                        <td th:text="#{cliente.nombre}">Nombre</td>
+                        <td th:text="#{cliente.apellidos}">Apelidos</td>
+                        <td th:text="#{cliente.correo}">Correo</td>
+                        <td th:text="#{cliente.telefono}">Telefono</td>
+                        <td th:text="#{cliente.limite}">Limite</td>
+                        <td th:text="#{cliente.modificar}">Modificar</td>
+                        <td th:text="#{cliente.eliminar}">Eliminar</td>
 
                     </tr>
 
@@ -47,5 +47,7 @@
                 No tenemos clientes para mostrar!
             </div>
         </div>
+                <footer th:replace="layout/plantilla :: footer" ></footer>
+
     </body>
 </html>
