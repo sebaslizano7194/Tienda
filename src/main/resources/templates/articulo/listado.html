@@ -31,8 +31,8 @@
 
                     <tr th:each="item :${articulos}">
                         <td th:text="${item.descripcion}"></td>
-                        <td th:text="${#Numbers.formatDecimal(item.precio,3,2)}"></td>
-                        <td th:text="${item.exstencias}"></td>
+                        <td th:text="${#numbers.formatDecimal(item.precio,3,2)}" style="text-align: right"></td>
+                        <td th:text="${item.existencias}"></td>
                         <td> <input type="checkbox" name="activo" th:checked="${item.activo}" disabled="true"></td>
                         <td><a th:href="@{/articulo/modificar/} + ${item.idArticulo}">Modificar</a></td>
                         <td><a th:href="@{/articulo/eliminar/} + ${item.idArticulo}">Eliminar</a>
