@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://thymeleaf.org/extras/spring-security">>
     <head>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
@@ -14,7 +15,7 @@
 
             <h2>Listado de Articulos</h2>
             <br><!-- comment -->
-            <a th:href="@{/articulo/nuevo}">Nuevo Articulo</a> <!--Esto es para hacer un href de agregar nuevo articulo en Thymeleaf. @ es para acciones-->
+            <a th:href="@{/articulo/nuevo} sec:authorize="hasRole('ROLE_ADMIN')">Nuevo Articulo</a> <!--Esto es para hacer un href de agregar nuevo articulo en Thymeleaf. @ es para acciones-->
             <br>
             <br>
 
@@ -34,8 +35,8 @@
                         <td th:text="${#numbers.formatDecimal(item.precio,3,2)}" style="text-align: right"></td>
                         <td th:text="${item.existencias}"></td>
                         <td> <input type="checkbox" name="activo" th:checked="${item.activo}" disabled="true"></td>
-                        <td><a th:href="@{/articulo/modificar/} + ${item.idArticulo}">Modificar</a></td>
-                        <td><a th:href="@{/articulo/eliminar/} + ${item.idArticulo}">Eliminar</a>
+                        <td><a th:href="@{/articulo/modificar/} + ${item.idArticulo} " sec:authorize="hasRole('ROLE_ADMIN')" >Modificar</a></td>
+                        <td><a th:href="@{/articulo/eliminar/} + ${item.idArticulo} " sec:authorize="hasRole('ROLE_ADMIN')">Eliminar</a>
                     </tr>
                 </table>
             </div>
